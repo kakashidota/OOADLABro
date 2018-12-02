@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheLab.Views.MainView"
+             xmlns:local="clr-namespace:TheLab.ViewModels;assembly=TheLab"
+             BackgroundColor="Teal">
+    <ContentPage.BindingContext>
+        <local:MyViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Maroon" HorizontalOptions="Center" VerticalOptions="Center">
+            <ListView ItemsSource="{Binding ListOfWords}"
+                      BackgroundColor="Yellow"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <BoxView Color="Red" HeightRequest="10"/>
+                <Entry Placeholder="YAZALAME" TextColor="Black" Text="{Binding Word}"/>
+                <Button Text="AddHajwan" TextColor="Black" Command="{Binding Execute}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Button Text="UNDO" TextColor="Black" Command="{Binding UndoCommand}"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Button Text="REDO" TextColor="Black" Command="{Binding RedoCommand}"/>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
